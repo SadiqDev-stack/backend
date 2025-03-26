@@ -14,3 +14,9 @@ const port = process.env.PORT;
 app.listen(port, () => {
     console.log("server started at " + port);
 });
+
+app.get('/api',(req,res) => {
+ res.json({
+   message: "welcome to api"
+})
+})
