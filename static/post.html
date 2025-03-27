@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Post</title>
+</head>
+<body>
+  
+  <div class="posts">
+    <span>Click To Load Post</span>
+  </div>
+  
+  <script>
+  
+   const Posts = document.querySelector(".posts");
+    
+    onclick = () => {
+      fetch("http://localhost:3000/posts")
+    .then(res => res.json())
+    .then(posts => {
+      Posts.innerHTML = ""
+console.log(posts)
+      posts.forEach(({id,title,content}) => {
+
+        Posts.innerHTML += `    <div class="post">
+      <span>title: ${title}</span><br>
+      <span>id: ${id}</span><br>
+      <span>content: ${content}</span><br>
+      </div>`
+      })
+    })
+    .catch(er => {
+      console.log(er)
+    })
+    }
+    
+    
+  </script>
+  
+</body>
+</html>

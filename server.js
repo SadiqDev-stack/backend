@@ -5,7 +5,7 @@ const port = 3000;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-
+app.use(express.static("./static"))
 let posts = [
   { id: 1, title: 'Post 1', content: 'This is post 1' },
   { id: 2, title: 'Post 2', content: 'This is post 2' },
